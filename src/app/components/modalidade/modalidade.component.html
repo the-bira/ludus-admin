@@ -1,0 +1,64 @@
+<div class="container">
+  <mz-card>
+    <mz-card-title>
+      Modalidade
+    </mz-card-title>
+    <mz-card-content>
+      <form action="">
+        <mz-input-container>
+          <input mz-input 
+            [label] = "'Descrição'"
+            [placeholder] = "'Escreva a modalidade'"
+            [validate]="false"
+            [(ngModel)]="md.descricao"
+            name="descricao"
+          >
+        </mz-input-container>
+        
+        <div class="row">
+            <div class="input-field col">
+              <button mz-button type="submit" style="width:100px;" (click)="create(md)">
+                Salvar
+              </button>
+            </div>
+            <div class="input-field col">
+              <button mz-button class="red"> Cancelar </button>
+            </div>
+        </div>
+      </form>
+
+      <br>
+
+      <table>
+        <thead>
+          <th style="width:70%;">Descição</th>
+          <th>Ações</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let modalidade of modalidades">
+            <td>{{modalidade.descricao}}</td>
+            <td>
+                <mz-input-container class="row">
+                  <i mz-icon
+                    [icon]="'delete'"
+                    class="col-3"
+                    (click)="delete(modalidade)">
+    
+                  </i>  
+                  <i mz-icon
+                    [icon]="'cicle-edit'"
+                    class="col-3"
+                    (click)="edit(modalidade)"
+                    >
+    
+                  </i>
+                  <div class="col-3"></div>
+                  <div class="col-3"></div>
+                </mz-input-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mz-card-content>
+  </mz-card>
+</div>
